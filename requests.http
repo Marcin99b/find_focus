@@ -1,0 +1,9 @@
+
+@base = http://localhost:8888
+
+GET {{base}}/hello/abc HTTP/1.1
+
+###
+
+POST {{base}}/state HTTP/1.1
+content-type: application/json
