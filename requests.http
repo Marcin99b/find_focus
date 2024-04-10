@@ -8,5 +8,5 @@ POST {{url}} HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "test"
+    "moodId": 0
 }

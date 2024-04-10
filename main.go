@@ -6,8 +6,16 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+const (
+	Focused    byte = 0
+	Distracted byte = 1
+	Idle       byte = 2
+	Tired      byte = 3
+	Bored      byte = 4
+)
+
 type SetMoodRequest struct {
-	Name string `json:"name" validate:"required"`
+	MoodId byte `json:"moodId" validate:"required"`
 }
 
 func main() {
@@ -20,7 +28,7 @@ func main() {
 		if err = c.Bind(r); err != nil {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}
-		return c.JSON(http.StatusOK, r)
+		return c.NoContent(http.StatusOK)
 	})
 	e.Logger.Fatal(e.Start(":8888"))
 }
